@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University of Cincinnati Men's Club Soccer</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background:#0a0a0a;
+    color:white;
+    overflow-x:hidden;
+}
+
+h1,h2,h3 {
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+/* NAV */
+
+nav {
+    position:fixed;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    z-index:1000;
+    transition:.4s;
+}
+
+nav.scrolled {
+    background:black;
+}
+
+nav img { height:50px; }
+
+nav ul {
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a {
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover { color:#E00122; }
+
+/* HERO */
+
+.hero {
+    height:100vh;
+    background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)), url('hero.jpg') center/cover fixed;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1 {
+    font-size:5rem;
+}
+
+.hero p {
+    font-size:1.5rem;
+    margin-top:20px;
+}
+
+.countdown {
+    margin-top:30px;
+    font-size:1.2rem;
+    color:#E00122;
+    font-weight:600;
+}
+
+/* SECTION */
+
+section {
+    padding:120px 80px;
+}
+
+.section-title {
+    font-size:3rem;
+    color:#E00122;
+    text-align:center;
+    margin-bottom:60px;
+}
+
+/* ABOUT */
+
+.about {
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    line-height:1.8;
+    font-size:1.1rem;
+}
+
+/* RESULTS */
+
+.results-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.result-card {
+    background:#151515;
+    padding:40px;
+    border-left:5px solid #E00122;
+    transition:.3s;
+}
+
+.result-card:hover {
+    transform:translateY(-10px);
+}
+
+/* ROSTER */
+
+.roster-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.player-card {
+    background:#151515;
+    padding:30px;
+    text-align:center;
+    transition:.3s;
+}
+
+.player-card:hover {
+    background:#E00122;
+}
+
+/* SPOTLIGHT */
+
+.spotlight {
+    background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)), url('action2.jpg') center/cover fixed;
+    text-align:center;
+}
+
+.spotlight h2 {
+    font-size:3.5rem;
+}
+
+.spotlight p {
+    margin-top:20px;
+    font-size:1.2rem;
+}
+
+/* GALLERY */
+
+.gallery {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.gallery img {
+    width:100%;
+}
+
+/* SPONSORS */
+
+.sponsors {
+    text-align:center;
+}
+
+.sponsor-logos {
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+    opacity:.6;
+}
+
+/* FORM */
+
+form {
+    max-width:600px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+input, textarea {
+    padding:15px;
+    border:none;
+}
+
+button {
+    padding:15px;
+    background:#E00122;
+    border:none;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer {
+    background:black;
+    padding:60px;
+    text-align:center;
+}
+
+@media(max-width:768px){
+    section{padding:100px 20px;}
+    .hero h1{font-size:2.5rem;}
+    .gallery{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+    <img src="logo.png">
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#roster">Roster</a></li>
+        <li><a href="#recruit">Recruit</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <div>
+        <h1>University of Cincinnati</h1>
+        <p>Men's Club Soccer</p>
+        <div class="countdown" id="countdown"></div>
+    </div>
+</div>
+
+<section id="about">
+    <h2 class="section-title">The Program</h2>
+    <div class="about">
+        Competing with pride and relentless intensity, the Bearcats represent Cincinnati 
+        at the highest level of collegiate club soccer. Built on brotherhood, discipline, 
+        and elite preparation, we strive to dominate on and off the pitch.
+    </div>
+</section>
+
+<section id="results">
+    <h2 class="section-title">Latest Results</h2>
+    <div class="results-grid">
+        <div class="result-card">
+            <h3>UC 3 - 1 Ohio State</h3>
+            <p>Dominant home victory under the lights.</p>
+        </div>
+        <div class="result-card">
+            <h3>UC vs Kent State</h3>
+            <p>Upcoming away fixture.</p>
+        </div>
+    </div>
+</section>
+
+<section id="roster">
+    <h2 class="section-title">Team Roster</h2>
+    <div class="roster-grid">
+        <div class="player-card"><h3>Player Name</h3><p>Forward | #9</p></div>
+        <div class="player-card"><h3>Player Name</h3><p>Midfielder | #8</p></div>
+        <div class="player-card"><h3>Player Name</h3><p>Defender | #4</p></div>
+    </div>
+</section>
+
+<section class="spotlight">
+    <h2>Player Spotlight</h2>
+    <p>Feature Athlete of the Week</p>
+</section>
+
+<section>
+    <h2 class="section-title">Media</h2>
+    <div class="gallery">
+        <img src="hero.jpg">
+        <img src="action2.jpg">
+    </div>
+</section>
+
+<section class="sponsors">
+    <h2 class="section-title">Sponsors</h2>
+    <div class="sponsor-logos">
+        <p>Future Sponsor</p>
+        <p>Future Sponsor</p>
+        <p>Future Sponsor</p>
+    </div>
+</section>
+
+<section id="recruit">
+    <h2 class="section-title">Join The Bearcats</h2>
+    <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Position">
+        <textarea rows="4" placeholder="Experience"></textarea>
+        <button type="submit">Submit Interest</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 University of Cincinnati Men's Club Soccer</p>
+    <p>Instagram | Twitter | YouTube</p>
+</footer>
+
+<script>
+window.addEventListener("scroll", function(){
+    document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);
+});
+
+var countDownDate = new Date("Sept 13, 2026 19:00:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  document.getElementById("countdown").innerHTML = "Next Match In: " + days + " Days";
+}, 1000);
+</script>
+
+</body>
+</html>
